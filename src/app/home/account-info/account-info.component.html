@@ -1,0 +1,18 @@
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <div class="d-flex justify-content-around align-items-center">
+        <h4>Balance</h4>
+        <p class="text-info font-weight-bold" style="font-size: 50px;">
+          {{ userInfo.balance | currency }}
+        </p>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col text-center">
+      <h4>Account number</h4>
+      <p class="text-muted">{{ userInfo.accountNumber }}</p>
+    </div>
+  </div>
+</div>
