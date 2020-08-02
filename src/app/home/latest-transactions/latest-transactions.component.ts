@@ -6,16 +6,25 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./latest-transactions.component.scss'],
 })
 export class LatestTransactionsComponent implements OnInit {
-  latestTransaction = [
+  transactions = [
     {
       name: 'Work',
-      amount: 10.0,
+      amount: 1000.0,
     },
     {
       name: 'Shop',
       amount: -25.5,
     },
+    {
+      name: 'Game',
+      amount: -200.5,
+    },
+    {
+      name: 'Manicure',
+      amount: -85.0,
+    },
   ];
+  latestTransaction = [this.transactions[0], this.transactions[1]];
 
   constructor() {}
 

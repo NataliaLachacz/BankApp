@@ -1,4 +1,6 @@
+import { DataStorageService } from './../../shared/data-storage.service';
 import { Component, OnInit } from '@angular/core';
+import { User } from 'src/app/shared/user.model';
 
 @Component({
   selector: 'app-account-info',
@@ -6,12 +8,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./account-info.component.scss'],
 })
 export class AccountInfoComponent implements OnInit {
-  userInfo = {
-    balance: 15000.0,
-    accountNumber: 'PL 47 1500 1881 2930 3987 8586 2383',
-  };
+  users: User[];
+  userIndex = 0;
 
-  constructor() {}
+  constructor(private dataStorageService: DataStorageService) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    return this.dataStorageService.getUsers().subscribe((users: User[]) => {
+      this.users = users;
+    });
+  }
 }
