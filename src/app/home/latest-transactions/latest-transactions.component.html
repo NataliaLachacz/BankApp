@@ -1,16 +1,10 @@
 <div class="container" style="width: 350px;">
   <h4>Latest transactions</h4>
-  <!-- <div class="row">
-    <div class="col d-flex justify-content-between">
-      <p class="text-muted">Shop</p>
-      <span class="text-danger">-15.00$</span>
-    </div>
-  </div> -->
   <div class="row" *ngFor="let transaction of latestTransaction; let i = index">
     <div class="col d-flex justify-content-between">
-      <p class="text-muted">{{ transaction.name }}</p>
+      <p class="text-muted">{{ transaction?.name }}</p>
       <span [ngClass]="transaction.amount > 0 ? 'text-success' : 'text-danger'">
-        {{ transaction.amount | currency }}</span
+        {{ transaction?.amount | currency }}</span
       >
     </div>
   </div>

@@ -12,7 +12,10 @@
   <div class="row">
     <div class="col text-center">
       <h4>Account number</h4>
-      <p class="text-muted">PL {{ users[userIndex]?.account.accountNumber }}</p>
+      <p class="text-muted">
+        PL
+        {{ users[userIndex]?.account?.accountNumber | accountNumber }}
+      </p>
     </div>
   </div>
 </div>

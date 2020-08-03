@@ -1,3 +1,4 @@
+import { DataStorageService } from './../../shared/data-storage.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -6,27 +7,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./latest-transactions.component.scss'],
 })
 export class LatestTransactionsComponent implements OnInit {
-  transactions = [
-    {
-      name: 'Work',
-      amount: 1000.0,
-    },
-    {
-      name: 'Shop',
-      amount: -25.5,
-    },
-    {
-      name: 'Game',
-      amount: -200.5,
-    },
-    {
-      name: 'Manicure',
-      amount: -85.0,
-    },
-  ];
-  latestTransaction = [this.transactions[0], this.transactions[1]];
+  userIndex = 0;
+  transfers = [];
+  latestTransaction = [];
 
-  constructor() {}
+  constructor(private dataStorageService: DataStorageService) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    return this.dataStorageService.getUsers().subscribe((users) => {
+      this.transfers = users[this.userIndex].account.transfers;
+      this.latestTransaction = [this.transfers[0], this.transfers[1]];
+    });
+  }
 }

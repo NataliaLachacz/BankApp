@@ -1,3 +1,4 @@
+import { DataStorageService } from './../../shared/data-storage.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -8,7 +9,7 @@ import { Component, OnInit } from '@angular/core';
 export class MonthlySummaryComponent implements OnInit {
   data: any;
 
-  constructor() {
+  constructor(private dataStorageService: DataStorageService) {
     this.data = {
       labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
       datasets: [
@@ -28,5 +29,17 @@ export class MonthlySummaryComponent implements OnInit {
     };
   }
 
-  ngOnInit() {}
+  userIndex = 0;
+  income = 0;
+  expense = 0;
+
+  ngOnInit() {
+    return this.dataStorageService.getUsers().subscribe((users) => {
+      for (const transfer of users[this.userIndex].account.transfers) {
+        transfer.amount > 0
+          ? (this.income += transfer.amount)
+          : (this.expense += transfer.amount);
+      }
+    });
+  }
 }

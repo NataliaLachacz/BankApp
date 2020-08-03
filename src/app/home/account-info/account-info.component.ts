@@ -8,7 +8,7 @@ import { User } from 'src/app/shared/user.model';
   styleUrls: ['./account-info.component.scss'],
 })
 export class AccountInfoComponent implements OnInit {
-  users: User[];
+  users: User[] = [];
   userIndex = 0;
 
   constructor(private dataStorageService: DataStorageService) {}
