@@ -1,3 +1,4 @@
+import { Transfer } from './transfer.model';
 import { User } from './user.model';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
@@ -15,5 +16,11 @@ export class DataStorageService {
 
   getUsers() {
     return this.http.get<User[]>(this.apiUrl);
+  }
+
+  putTransfer(users: User[], transfer: Transfer) {
+    console.log(users, transfer);
+    users[0].account.transfers.push(transfer);
+    return this.http.put(this.apiUrl, users);
   }
 }

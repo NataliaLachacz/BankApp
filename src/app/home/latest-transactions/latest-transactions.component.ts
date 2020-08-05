@@ -16,7 +16,10 @@ export class LatestTransactionsComponent implements OnInit {
   ngOnInit() {
     return this.dataStorageService.getUsers().subscribe((users) => {
       this.transfers = users[this.userIndex].account.transfers;
-      this.latestTransaction = [this.transfers[0], this.transfers[1]];
+      this.latestTransaction = [
+        this.transfers[this.transfers.length - 1],
+        this.transfers[this.transfers.length - 2],
+      ];
     });
   }
 }

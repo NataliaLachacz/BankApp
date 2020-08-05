@@ -12,12 +12,13 @@ p-table {
 }
 
 th {
-  background-color: #17a2b8;
+  background-color: #6c757d;
   color: white;
+  min-width: 200px;
 }
 
-tr:nth-child(2) {
-  background-color: rgb(214, 231, 255);
+tr:nth-child(even) {
+  background-color: rgb(240, 240, 240);
 }
 
 th,

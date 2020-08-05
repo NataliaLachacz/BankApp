@@ -2,6 +2,8 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
+import { FormsModule } from '@angular/forms';
+import { PrimengModule } from './primeng/primeng.module';
 
 import { UsersService } from './user/users.service';
 import { DataStorageService } from './shared/data-storage.service';
@@ -21,9 +23,6 @@ import { RegisterComponent } from './user/register/register.component';
 
 import { AccountNumberPipe } from './shared/account-number.pipe';
 
-import { ChartModule } from 'primeng/chart';
-import { TableModule } from 'primeng/table';
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -40,11 +39,11 @@ import { TableModule } from 'primeng/table';
     AccountNumberPipe,
   ],
   imports: [
+    PrimengModule,
     BrowserModule,
     AppRoutingModule,
-    ChartModule,
-    TableModule,
     HttpClientModule,
+    FormsModule,
   ],
   providers: [AccountService, UsersService, DataStorageService],
   bootstrap: [AppComponent],
