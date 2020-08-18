@@ -3,7 +3,7 @@
   <div class="row" *ngFor="let transaction of latestTransaction; let i = index">
     <div class="col d-flex justify-content-between">
       <p class="text-muted">{{ transaction?.name }}</p>
-      <span [ngClass]="transaction.amount > 0 ? 'text-success' : 'text-danger'">
+      <span [ngClass]="transaction.amount | amountColor">
         {{ transaction?.amount | currency }}</span
       >
     </div>

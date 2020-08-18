@@ -30,15 +30,21 @@ export class MonthlySummaryComponent implements OnInit {
   }
 
   userIndex = 0;
+  month = new Date().getMonth() + 1;
+  year = new Date().getFullYear();
+  currentMonth =
+    this.year + '-' + (this.month < 10 ? '0' + this.month : this.month);
   income = 0;
   expense = 0;
 
   ngOnInit() {
     return this.dataStorageService.getUsers().subscribe((users) => {
       for (const transfer of users[this.userIndex].account.transfers) {
-        transfer.amount > 0
-          ? (this.income += transfer.amount)
-          : (this.expense += transfer.amount);
+        if (transfer.date.toString().includes(this.currentMonth)) {
+          transfer.amount > 0
+            ? (this.income += transfer.amount)
+            : (this.expense += transfer.amount);
+        }
       }
     });
   }

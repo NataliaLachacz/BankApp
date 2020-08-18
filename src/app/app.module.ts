@@ -4,6 +4,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { FormsModule } from '@angular/forms';
 import { PrimengModule } from './primeng/primeng.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NgxMaskModule, IConfig } from 'ngx-mask';
 
 import { UsersService } from './user/users.service';
 import { DataStorageService } from './shared/data-storage.service';
@@ -21,8 +23,7 @@ import { UserComponent } from './user/user.component';
 import { LoginComponent } from './user/login/login.component';
 import { RegisterComponent } from './user/register/register.component';
 
-import { AccountNumberPipe } from './shared/account-number.pipe';
-
+import { AmountColorPipe } from './shared/amount-color.pipe';
 @NgModule({
   declarations: [
     AppComponent,
@@ -36,14 +37,16 @@ import { AccountNumberPipe } from './shared/account-number.pipe';
     UserComponent,
     LoginComponent,
     RegisterComponent,
-    AccountNumberPipe,
+    AmountColorPipe,
   ],
   imports: [
     PrimengModule,
     BrowserModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
+    NgxMaskModule.forRoot(),
   ],
   providers: [AccountService, UsersService, DataStorageService],
   bootstrap: [AppComponent],

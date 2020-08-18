@@ -16,11 +16,11 @@
       <td>
         {{ rowData.name }}
       </td>
-      <td [ngClass]="rowData.amount > 0 ? 'text-success' : 'text-danger'">
+      <td [ngClass]="rowData.amount | amountColor">
         {{ rowData.amount | currency }}
       </td>
       <td>
-        {{ rowData.date | date }}
+        {{ rowData.date | date: 'dd/MM/y H:mm' }}
       </td>
     </tr>
   </ng-template>

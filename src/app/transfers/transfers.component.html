@@ -1,3 +1,5 @@
+<p-toast class="p-toast-icon-close" (onClose)="onClose()"></p-toast>
+
 <div class="container mt-5 text-center">
   <h4>Make a transfer</h4>
   <form class="w-50 m-auto" (ngSubmit)="sendTransfer(f)" #f="ngForm">
@@ -22,6 +24,7 @@
         id="accountNumber"
         placeholder="Account number"
         required
+        mask="00 0000 0000 0000 0000 0000 0000"
         name="accountNumber"
         ngModel
       />
@@ -47,7 +50,21 @@
         ngModel
       />
     </div>
-    <button type="submit" class="btn btn-info">
+    <div class="form-group">
+      <p-calendar
+        id="date"
+        name="date"
+        dateFormat="dd/mm/yy"
+        showTime="true"
+        hourFormat="24"
+        [minDate]="currentDate"
+        placeholder="Select future date"
+        ngModel
+        [showIcon]="true"
+      ></p-calendar>
+    </div>
+
+    <button type="submit" class="btn btn-info" [disabled]="f.invalid">
       Submit
     </button>
   </form>
