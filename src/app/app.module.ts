@@ -5,7 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { FormsModule } from '@angular/forms';
 import { PrimengModule } from './primeng/primeng.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { NgxMaskModule, IConfig } from 'ngx-mask';
+import { NgxMaskModule } from 'ngx-mask';
 
 import { UsersService } from './user/users.service';
 import { DataStorageService } from './shared/data-storage.service';

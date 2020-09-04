@@ -19,6 +19,7 @@ export class TransfersComponent implements OnInit {
 
   newUsers: User[] = [];
   currentDate = new Date();
+  isFutureDate = false;
 
   ngOnInit() {
     this.dataStorageService

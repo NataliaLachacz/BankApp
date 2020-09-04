@@ -1,0 +1,15 @@
+.submit-container {
+  display: flex;
+  justify-content: space-around;
+}
+
+.ui-inputgroup {
+  margin: 15px 0;
+}
+
+.ui-inputgroup .ui-inputgroup-addon {
+  display: grid;
+  align-items: center;
+  width: 2.5em;
+  height: 2.5em;
+}
