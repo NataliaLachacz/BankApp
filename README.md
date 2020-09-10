@@ -1,6 +1,13 @@
 # Bank
+BankApp is an Angular app. In this app you can transfer some money, see history of the transfers, monthly summary and basic information about account.
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.22.
+I used for this:
+- Angular 9
+- Firebase
+- PrimeNG
+- Bootstrap
+
+This project was generated with Angular CLI version 8.3.22.
 
 ## Development server
 
