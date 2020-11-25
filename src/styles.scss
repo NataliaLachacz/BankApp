@@ -3,6 +3,33 @@ button {
   text-transform: uppercase;
 }
 
+body .ui-calendar.ui-calendar-w-btn .ui-datepicker-trigger.ui-button {
+  padding: 0;
+}
+
+body .ui-button {
+  background-color: #17a2b8;
+  border: 1px solid#17a2b8;
+  padding: 3px;
+}
+
+body .ui-button:enabled:hover {
+  background-color: #118ea1;
+  border: 1px solid #118ea1;
+}
+
+body .ui-inputswitch.ui-inputswitch-checked .ui-inputswitch-slider {
+  background-color: #17a2b8;
+}
+
+body .ui-inputswitch.ui-inputswitch-checked:not(.ui-state-disabled):hover .ui-inputswitch-slider {
+  background-color: #118ea1;
+}
+
+body .ui-datepicker table td > a.ui-state-active, body .ui-datepicker table td > span.ui-state-active {
+  background-color: #17a2b8;
+}
+
 .input {
   display: block;
   width: 100%;

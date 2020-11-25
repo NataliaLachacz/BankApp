@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "bankapp-6b895": {
+      "hosting": {
+        "bank": [
+          "bankapp-6b895"
+        ]
+      }
+    }
+  }
+}

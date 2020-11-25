@@ -2,10 +2,11 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PrimengModule } from './primeng/primeng.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgxMaskModule } from 'ngx-mask';
+import { AngularFireModule } from '@angular/fire';
 
 import { UsersService } from './user/users.service';
 import { DataStorageService } from './shared/data-storage.service';
@@ -20,10 +21,20 @@ import { MonthlySummaryComponent } from './home/monthly-summary/monthly-summary.
 import { TransfersComponent } from './transfers/transfers.component';
 import { HistoryComponent } from './history/history.component';
 import { UserComponent } from './user/user.component';
-import { LoginComponent } from './user/login/login.component';
-import { RegisterComponent } from './user/register/register.component';
+import { SignInComponent } from './user/signIn/signIn.component';
+import { SignUpComponent } from './user/signUp/signUp.component';
 
-import { AmountColorPipe } from './shared/amount-color.pipe';
+import { AmountColorPipe } from './shared/utils/amount-color.pipe';
+import { environment } from '../environments/environment';
+
+const firebaseConfig = {
+  apiKey: 'AIzaSyCAYM__UiK2uLQRYBe84227JKsYsU_Vn2g',
+  authDomain: 'angular-love.firebaseapp.com',
+  databaseURL: 'https://angular-love.firebaseio.com',
+  projectId: 'angular-love',
+  storageBucket: 'angular-love.appspot.com',
+  messagingSenderId: '721645252435'
+};
 @NgModule({
   declarations: [
     AppComponent,
@@ -35,8 +46,8 @@ import { AmountColorPipe } from './shared/amount-color.pipe';
     TransfersComponent,
     HistoryComponent,
     UserComponent,
-    LoginComponent,
-    RegisterComponent,
+    SignInComponent,
+    SignUpComponent,
     AmountColorPipe,
   ],
   imports: [
@@ -45,8 +56,10 @@ import { AmountColorPipe } from './shared/amount-color.pipe';
     BrowserAnimationsModule,
     AppRoutingModule,
     HttpClientModule,
+    ReactiveFormsModule,
     FormsModule,
     NgxMaskModule.forRoot(),
+    AngularFireModule.initializeApp(environment.firebase)
   ],
   providers: [AccountService, UsersService, DataStorageService],
   bootstrap: [AppComponent],

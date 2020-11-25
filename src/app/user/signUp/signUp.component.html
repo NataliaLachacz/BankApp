@@ -1,0 +1,43 @@
+<div class="container mt-5 text-center">
+  <form [formGroup]="registerForm" class="ui-fluid ui-lg-6 m-auto" #f>
+    <h4>Register to BankApp</h4>
+    <div>
+      <div class="ui-inputgroup">
+        <span class="ui-inputgroup-addon">@</span>
+        <input
+          formControlName="email"
+          pInputText
+          placeholder="E-mail"
+          type="email"
+          id="email"
+          required
+          name="email"
+        />
+      </div>
+    </div>
+    <div>
+      <div class="ui-inputgroup">
+        <span class="ui-inputgroup-addon"><i class="pi pi-lock"></i></span>
+        <input
+          formControlName="password"
+          pInputText
+          placeholder="Password"
+          type="password"
+          id="password"
+          required
+          name="password"
+        />
+      </div>
+    </div>
+    <button
+      (click)="createUser()"
+      pButton
+      label="Register"
+      class="btn btn-info"
+      [disabled]="f.invalid"
+    ></button>
+  </form>
+  <div class="text-dark" role="alert">
+    Go to <a routerLink="" class="text-info">login</a>.
+  </div>
+</div>
